@@ -1,16 +1,26 @@
 # TO-DO: Complete the selection_sort() function below
 def selection_sort(arr):
-    # loop through n-1 elements
-    for i in range(0, len(arr) - 1):
-        cur_index = i
-        smallest_index = cur_index
-        # TO-DO: find next smallest element
-        # (hint, can do in 3 loc)
-        # Your code here
+    # starting at the second item, iterate until the end of the array
+    for i in range(1, len(arr)):
 
+        # the current number at the index represents the value
+        # currently being sorted
+        cur_num = arr[i]
 
-        # TO-DO: swap
-        # Your code here
+        # move the current number back through the array
+        # (to the 'sorted side')
+        j = i
+
+        # keep moving until: its greater than the number before it OR
+        # we reach the start of array
+        while j > 0 and cur_num < arr[j - 1]:
+            # replace the current value and the one to left of it
+            arr[j] = arr[j - 1]
+            j -= 1
+
+        # set the value of the current index to the current number
+        # at this moment, J represents the new location for the curr number
+        arr[j] = cur_num
 
     return arr
 
